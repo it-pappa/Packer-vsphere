@@ -2,12 +2,12 @@
 
 Packer vsphere builder is official supported by Hashicorp. 
 
-Tested on:
-Packer - 1.7.6
-vSphere - 6.7
+Tested on: <br>
+Packer - 1.7.6 <br>
+vSphere - 6.7 <br>
 
-Resources:
-https://www.packer.io/docs/builders/vsphere
-https://ubuntu.com/download/server
-
+Resources: <br>
+https://www.packer.io/docs/builders/vsphere <br>
+https://ubuntu.com/download/server <br>
+<br>
 These templates are ready for use with Terraform. :)
