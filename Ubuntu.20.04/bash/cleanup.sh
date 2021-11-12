@@ -7,13 +7,7 @@ set -x
 
 DISK_USAGE_BEFORE_CLEANUP=$(df -h)
 
-# Make sure udev does not block our network - http://6.ptmc.org/?p=164
-# echo "==> Cleaning up udev rules"
-# rm -rf /dev/.udev/
-# rm /lib/udev/rules.d/75-persistent-net-generator.rules
 
-# Blank machine-id (DUID) so machines get unique ID generated on boot.
-# https://www.freedesktop.org/software/systemd/man/machine-id.html#Initialization
 echo "==> Blanking systemd machine-id"
 if [ -f "/etc/machine-id" ]; then
     truncate -s 0 "/etc/machine-id"
@@ -77,3 +71,14 @@ echo "${DISK_USAGE_BEFORE_CLEANUP}"
 
 echo "==> Disk usage after cleanup"
 df -h
+
+echo `> Preparing cloud-init ...`
+rm -rf /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
+rm -rf /etc/cloud/cloud.cfg.d/99-installer.cfg
+rm -rf /etc/netplan/00-installer-config.yaml
+echo "disable_vmware_customization: false" >> /etc/cloud/cloud.cfg
+echo "datasource_list: [ VMware, OVF, None ]" > /etc/cloud/cloud.cfg.d/90_dpkg.cfg
+### Modify GRUB ###
+echo `> Modifying GRUB ...`
+sed -i -e "s/GRUB_CMDLINE_LINUX_DEFAULT=\"\(.*\)\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
+update-grub

@@ -19,14 +19,14 @@ variable "iso_checksum" {}
 variable "cdrom_type" {}
 variable "guest_os_type" {}
 variable "root_disk_size" {
-    default = 24000
+    default = 15000
 }
 variable "nic_type" {
     default = "vmxnet3"
 }
 variable "vm_network" { }
 variable "num_cpu" {
-    default = 2
+    default = 1
 }
 variable "num_cores" {
     default = 1
@@ -34,11 +34,13 @@ variable "num_cores" {
 variable "vm_ram" {
     default = 4096
 }
-variable "os_family" {}
+variable "os_family" {
+    description = "OS Family builds the paths needed for packer"
+}
 variable "boot_command" {}
 
 #Other Info:
-variable "Output_Directory" {}
+#variable "Output_Directory" {}
 variable "ip_wait" {}
 variable "ssh_timeout" {}
 variable "ssh_handshakes" {}

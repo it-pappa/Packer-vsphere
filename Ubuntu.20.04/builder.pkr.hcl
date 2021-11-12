@@ -9,14 +9,8 @@ source "vsphere-iso" "ubuntu" {
   host                = var.vcenter_host
   datastore           = var.vcenter_datastore
   folder              = var.vcenter_folder
-
-    #Post
-    export {    
-      force = true
-      name = "${ var.os_family }-${ var.os_version }-{{ isotime \"2006-01-02\" }}"
-      output_directory = "local/directory"  
-      }
   convert_to_template   = true
+  
   # VM Settings
   http_directory        = var.http_directory
   ip_wait_timeout       = var.ip_wait
@@ -46,8 +40,8 @@ source "vsphere-iso" "ubuntu" {
   RAM_hot_plug          = true
   boot_wait             = "5s"
   cd_files = [
-    "./http/meta-data",
-    "./http/user-data"]
+    "./vms/ubuntu/http/meta-data",
+    "./vms/ubuntu/http/user-data"]
   cd_label = "cidata"
   boot_command          = var.boot_command
 }
@@ -60,10 +54,8 @@ build {
     provisioner "shell" {
       execute_command = "echo '${var.connection_password}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'" 
       scripts = [
-          "Scripts/apt.sh",
-          "Scripts/cleanup.sh",
-          "Scripts/python.sh"
-
+          "bash/apt.sh",
+          "bash/cleanup.sh"
       ]
     }
-}
+} 

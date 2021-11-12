@@ -8,9 +8,9 @@ autoinstall:
     layout: en
     variant: us
   identity:
-    hostname: Ubuntu.20.04
+    hostname: ubuntu.template
     username: username
-    password: 'hashed password'
+    password: 'hashed-password'
   ssh:
     install-server: yes
     allow-pw: yes
@@ -25,3 +25,4 @@ autoinstall:
    disable_root: false
   packages:
     - open-vm-tools
+    - cloud-init

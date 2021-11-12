@@ -1,17 +1,6 @@
-#vCenter Info
-vcenter_server      = "ip/dns"
-vcenter_username    = "username@vsphere.local"
-vcenter_cluster     = "cluster_name"
-vcenter_datacenter  = "dataventer_name"
-vcenter_host        = "esxi host ip/dns"
-vcenter_datastore   = "datastore"
-vcenter_folder      = "Templates"
-vcenter_password    = "password"
-vm_network          = "network"
-
 
 #VM Info Ubuntu:
-http_directory  = "http"
+http_directory  = "vms/ubuntu/http"
 os_version      = "20.04"
 os_family       = "ubuntu"
 guest_os_type   = "ubuntu64Guest"
@@ -31,7 +20,7 @@ boot_command = [
 ]
 
 #Other:
-Output_Directory    = "local/directory" 
+#Output_Directory    = "your-dirPacker/Templates" 
 
 #Timeouts:
 ip_wait     = "20m"
