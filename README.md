@@ -2,13 +2,16 @@
 
 Packer vsphere builder is official supported by Hashicorp. 
 
-# Tested on:
+Tested on:
 Packer - 1.7.6 <br>
 Packer - 1.7.8 <br>
-
+<br>
 Platform:<br>
 vSphere - 6.7 <br>
 <br>
+OS: <br>
+Ubuntu 20.04 <br>
+RHEL8.4 <br>
 <br>
 <br>
 Resources: <br>
