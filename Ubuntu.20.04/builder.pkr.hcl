@@ -1,4 +1,4 @@
-source "vsphere-iso" "ubuntu" {
+source "vsphere-iso" "vm" {
   # vCenter settings
   vcenter_server      = var.vcenter_server
   username            = var.vcenter_username
@@ -9,7 +9,7 @@ source "vsphere-iso" "ubuntu" {
   host                = var.vcenter_host
   datastore           = var.vcenter_datastore
   folder              = var.vcenter_folder
-  convert_to_template   = true
+  convert_to_template = true
   
   # VM Settings
   http_directory        = var.http_directory
@@ -49,7 +49,7 @@ source "vsphere-iso" "ubuntu" {
 
 build {
     sources = [
-        "source.vsphere-iso.ubuntu",
+        "source.vsphere-iso.vm",
     ]
     provisioner "shell" {
       execute_command = "echo '${var.connection_password}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'" 
