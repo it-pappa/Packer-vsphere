@@ -3,7 +3,7 @@
 ### Update and Upgrade the system
 echo "Updating System..."
 yum -y update
-yum -u upgrade
+yum -y upgrade
 
 ### Create a clean script. ###
 echo "Starting Cleanup..."
