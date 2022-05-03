@@ -12,7 +12,7 @@ vSphere - 6.7 <br>
 <br>
 OS: <br>
 Ubuntu 20.04 <br>
-RHEL8.* <br>
+RHEL8 (8.4, 8.5, 8.6) <br>
 Rocky Linux 8.5 <br>
 <br>
 <br>
